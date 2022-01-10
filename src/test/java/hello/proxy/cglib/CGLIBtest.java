@@ -11,10 +11,11 @@ public class CGLIBtest {
     @Test
     void cglib() {
         ConcreteService target = new ConcreteService();
-        Enhancer enhancer = new Enhancer();
+        Enhancer enhancer = new Enhancer();//Enhancer가 CGLIB를 만들어 준다.
         enhancer.setSuperclass(ConcreteService.class);//해당 인자를 상속받아 프록시를 만든다.
         enhancer.setCallback(new TimeMethodInterceptor(target));
         ConcreteService proxy = (ConcreteService) enhancer.create();
+        proxy.call();
         log.info("targetClass = {}", target.getClass());
         log.info("proxyClass = {}", proxy.getClass());
     }

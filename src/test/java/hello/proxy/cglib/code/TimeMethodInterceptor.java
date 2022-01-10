@@ -20,7 +20,7 @@ public class TimeMethodInterceptor implements MethodInterceptor {
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         log.info("Time Proxy 실행");
         long startTime = System.currentTimeMillis();
-        Object result = methodProxy.invoke(target, args);
+        Object result = methodProxy.invoke(target, args);//method.invoke()보다 성능이 더 좋음
         long endTime = System.currentTimeMillis();
         log.info("TimeProxy 종료 resultTime = {}", endTime-startTime);
         return result;

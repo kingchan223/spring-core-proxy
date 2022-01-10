@@ -1,6 +1,5 @@
 package hello.proxy.app.v1;
 
-import lombok.RequiredArgsConstructor;
 
 public class OrderServiceV1Impl implements OrderServiceV1{
 
